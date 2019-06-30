@@ -1176,6 +1176,7 @@ a buffer visiting a file."
 
 (ert-deftest counsel-find-file-with-dotfiles ()
   (counsel--setup-test-files)
+  (message (shell-command-to-string "ls -a tests/find-file/dotfiles/"))
   (should (string=
            (file-relative-name
             (ivy-with '(counsel-find-file) "f C-m"
