@@ -54,6 +54,10 @@
   :group 'ivy
   :group 'faces)
 
+(defface ivy-minibuffer-prompt-face
+  '((t :inherit minibuffer-prompt))
+  "Face for `ivy' minibuffer prompt.")
+
 (defface ivy-current-match
   '((((class color) (background light))
      :background "#1a4b77" :foreground "white")
@@ -2862,7 +2866,7 @@ parts beyond their respective faces `ivy-confirm-face' and
                            (concat (match-string 1 n-str) "\n")
                            nil t n-str 1))))
           (set-text-properties 0 (length n-str)
-                               `(face minibuffer-prompt ,@std-props)
+                               `(face ivy-minibuffer-prompt-face ,@std-props)
                                n-str)
           (setq n-str (funcall ivy-set-prompt-text-properties-function
                                n-str std-props))
